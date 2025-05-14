@@ -6,7 +6,7 @@ services:
       VERSION: "10"
       USERNAME: "test2" 
       PASSWORD: "abcd@1234"
-      RAM_SIZE: "12G"
+      RAM_SIZE: "8G"
       CPU_CORES: "4"
       DISK_SIZE: "400G"
       DISK2_SIZE: "50G"
@@ -20,6 +20,6 @@ services:
       - 3389:3389/tcp
       - 3389:3389/udp
     volumes:
-      - ./mnt/windows:/storage
-    restart: always
+      - /tmp/windows:/storage
+    restart: unless-stopped
     stop_grace_period: 2m
